@@ -23,16 +23,38 @@ class KCStreetcarSkill(MycroftSkill):
             LOGGER.info('Preparing to get kc streetcar times')
 
             url = 'http://www.kc-metro.com/tmwebwatch/Arrivals.aspx/getStopTimes'
+            headers = {'Content-Type': 'application/json'}
 
-            #TODO: make stop and direction inputs the user chooses beforehand
-            postData = json.JSONEncoder().encode({'routeID':100,'directionID':15,'stopID':9138,'useArrivalTimes':true})
-            response = requests.post(url, postData)
-            jsonData = json.load(response.data)
-            #TODO: check for null values
-            nextStop = jsonData.d.routeStops[0].stops[0].crossings[0]
+            #Routes for routeID
+            #Streetcar:100
+
+            #Directions for directionID
+            #North:14
+            #South:15
+
+            #Stops for stopID
+            #3rd & Grand:9215
+            #4th & Delaware:9230
+            #7th & Main:9132
+            #9th & Main:9133
+            #12th & Main:9231
+            #14th & Main:9232
+            #16th & Main:9233
+            #19th & Main:9134
+            #Union Station Main St:9135
             
-            #TODO: integrate dialog
-            self.speak_dialog('The next streetcar will arrive at ' + nextStop.predTime + ' ' + nextStop.predPeriod)
+            #TODO: make stopID and directionID persistent settings the user sets in Mycroft Home
+            payload = {'routeID':100,'directionID':15,'stopID':9132,'useArrivalTimes':'true'}
+
+            response = requests.post(url, data=json.dumps(payload), headers=headers)
+            jsonObject = response.json()
+
+            #TODO: check for null values
+            crossing = jsonObject['d']['routeStops'][0]['stops'][0]['crossings'][0]
+            
+            #TODO: handle delays and cancellations
+            #TODO: integrate dialog for time and direction
+            self.speak_dialog('The next streetcar will arrive at ' + crossing['predTime'] + ' ' + crossing['predPeriod'])
 
         except Exception as e:
             LOGGER.error("Error: {0}".format(e))
