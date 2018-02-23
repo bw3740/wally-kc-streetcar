@@ -1,4 +1,4 @@
-## Nerdery KC Streetcar
+## KC Streetcar
 Retrieves estimates for next Kansas City streetcar arrival times in both directions.
 
 ## Description 
