@@ -54,7 +54,7 @@ class KCStreetcarSkill(MycroftSkill):
             
             #TODO: handle delays and cancellations
             #TODO: integrate dialog for time and direction
-            self.speak_dialog('The next streetcar will arrive at ' + crossing['predTime'] + ' ' + crossing['predPeriod'])
+            self.speak_dialog('The next streetcar heading South from Seventh and Main Street will arrive at ' + crossing['predTime'] + ' ' + crossing['predPeriod'])
 
         except Exception as e:
             LOGGER.error("Error: {0}".format(e))
