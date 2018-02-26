@@ -24,24 +24,6 @@ class KCStreetcarSkill(MycroftSkill):
 
             url = 'http://www.kc-metro.com/tmwebwatch/Arrivals.aspx/getStopTimes'
             headers = {'Content-Type': 'application/json'}
-
-            #Routes for routeID
-            #Streetcar:100
-
-            #Directions for directionID
-            #North:14
-            #South:15
-
-            #Stops for stopID
-            #3rd & Grand:9215
-            #4th & Delaware:9230
-            #7th & Main:9132
-            #9th & Main:9133
-            #12th & Main:9231
-            #14th & Main:9232
-            #16th & Main:9233
-            #19th & Main:9134
-            #Union Station Main St:9135
             
             #TODO: make stopID and directionID persistent settings the user sets in Mycroft Home
             payload = {'routeID':100,'directionID':15,'stopID':9132,'useArrivalTimes':'true'}
