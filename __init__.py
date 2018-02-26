@@ -15,7 +15,7 @@ class KCStreetcarSkill(MycroftSkill):
         self.process = None
 
     def initialize(self):
-        intent = IntentBuilder("KCStreetcarIntent").require("next_car").build()
+        intent = IntentBuilder("KCStreetcarIntent").require("KCStreetcarSkill").build()
         self.register_intent(intent, self.handle_intent)
 
     def handle_intent(self, message):
