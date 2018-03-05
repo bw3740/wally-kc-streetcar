@@ -11,6 +11,8 @@ This skill is still in it's early stages of development. With the planned expans
 ## Example Intents
 * "kc street car at third" 
 * "kansas city streetcar at ninth heading north"
+
+## List of Supported Stops
 * 3rd & Grand = "third" or "grand"
 * 4th & Delaware = "fourth" or "delaware"
 * 5th & Walnut = "fifth" or "walnut"
