@@ -28,4 +28,4 @@ This skill is still in it's early stages of development. With the planned expans
 * Prompt user for "North" or "South" if they don't specify it for bi-directional stops
 
 ## Credits 
-Brad Walters & Matt Burke @ The Nerdery
+Brad Walters & Matt Burke
